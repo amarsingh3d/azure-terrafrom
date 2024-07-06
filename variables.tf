@@ -107,7 +107,7 @@ variable "vm_instances" {
     },
     prod = {
       count               = "1"
-      location            = "East US"    
+      location            = "East US"
       resource_group_name = "prod-resource-group"
       network_interface_ids = [
         ""

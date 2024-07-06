@@ -10,11 +10,11 @@ locals {
 resource "azurerm_public_ip" "public_ip" {
   for_each = merge(
     { for idx in range(var.vm_instances.dev.count) : "dev-${idx}" => {
-        environment = "dev"
+      environment = "dev"
       }
     },
     { for idx in range(var.vm_instances.prod.count) : "prod-${idx}" => {
-        environment = "prod"
+      environment = "prod"
       }
     }
   )
@@ -39,7 +39,7 @@ resource "azurerm_network_interface" "nic" {
     }
   )
 
- 
+
   name                = "${each.key}-nic"
   location            = var.vm_instances[each.value.environment].location
   resource_group_name = var.vm_instances[each.value.environment].resource_group_name
